@@ -1,0 +1,21 @@
+{
+  "name": "react-native-infinte-progress-bar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoldenOwlAsia/react-native-infinite-progress-bar.git"
+  },
+  "version": "0.0.1",
+  "description": "Infinite progress bar component for React Native",
+  "main": "index.js",
+  "author": "Nguyen The Thang <justin.ntt@gmail.com> (http://goldenowl.asia)",
+  "keywords": [
+    "react",
+    "native",
+    "react-native",
+    "infinite",
+    "progress",
+    "bar",
+    "load",
+    "loading"
+  ]
+}
