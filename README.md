@@ -12,7 +12,11 @@ A simple infinite progress bar based on RN Animation rather than component's sta
 
 ```javascript
 
-<InfiniteProgressBar containerStyle={{backgroundColor: 'white', marginTop: 100, marginBottom: 100}} runnerStyle={{backgroundColor: 'blue'}}/>
+<InfiniteProgressBar
+  containerStyle={{backgroundColor: 'white', marginTop: 100, marginBottom: 100}}
+  runnerStyle={{backgroundColor: 'blue'}}
+  duration={800}
+/>
 
 ```
 
@@ -22,6 +26,7 @@ A simple infinite progress bar based on RN Animation rather than component's sta
 |---|---|
 |**`containerStyle `**|The style of the background.|
 |**`runnerStyle `**|The style of the runner.|
+|**`duration `**|The duration of one loop of the animation in milliseconds.|
 
 
 ## Donation

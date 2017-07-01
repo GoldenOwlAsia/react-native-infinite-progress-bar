@@ -5,6 +5,7 @@ import {
   Dimensions,
   Animated,
 } from 'react-native';
+import invariant from 'invariant';
 
 const RUNNER_WIDTH = 180;
 const RUNNER_HEIGHT = 8;
@@ -32,6 +33,7 @@ class InfiniteProgressBar extends Component {
       runnerPos: new Animated.Value(-RUNNER_WIDTH),
     };
     this._value = -RUNNER_WIDTH;
+    this.validateDuration(props.duration);
   }
 
   componentWillMount() {
@@ -40,19 +42,28 @@ class InfiniteProgressBar extends Component {
     this.doLoop(this.makeAnimation);
   }
 
-  makeAnimation(currentValue, value) {
+  validateDuration(duration) {
+    if(duration) {
+      invariant(
+        typeof duration === 'number',
+        'The duration must be a number'
+      );
+    }
+  }
+
+  makeAnimation(currentValue, value, duration) {
     const toValue = value === -RUNNER_WIDTH ? deviceWidth : -RUNNER_WIDTH;
     return Animated.timing(
       currentValue,
       {
         toValue,
-        duration: runnerDuration,
+        duration: duration || runnerDuration,
       }
     );
   }
 
   doLoop(animation) {
-    animation(this.state.runnerPos, this._value).start(() => {
+    animation(this.state.runnerPos, this._value, this.props.duration).start(() => {
       if (this._value === deviceWidth) {
         this.state.runnerPos.setValue(-RUNNER_WIDTH);
       }
